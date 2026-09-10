@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070812">
+  <meta name="description" content="Interaktivna priprava na 13 uradnih ustnih vprašanj iz Numeričnih metod 2.">
+  <title>NUM2/LAB — izpitna priprava</title>
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="oral.css">
+  <link rel="stylesheet" href="theme-num2.css">
+  <link rel="stylesheet" href="easy-oral.css">
+</head>
+<body>
+  <a class="skip-link" href="#view">Preskoči na vsebino</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Glavna navigacija">
+      <div class="brand" aria-label="NUM2 LAB">
+        <span class="brand-mark">N²</span>
+        <span><strong>NUM2</strong><small>IZPITNI LAB</small></span>
+      </div>
+
+      <label class="search-box" for="global-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="global-search" type="search" placeholder="Išči po teoriji …" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <div class="search-results" id="search-results" hidden></div>
+
+      <nav class="main-nav" aria-label="Načini učenja">
+        <a href="#/domov" data-route="domov"><span>⌂</span> Pregled</a>
+        <a href="#/na-izi" data-route="na-izi"><span>◎</span> Na izi za ustni</a>
+        <a href="#/pregled-3h" data-route="pregled-3h"><span>◴</span> 3-urni pregled</a>
+        <a href="#/ustni" data-route="ustni"><span>◎</span> Ustni izpit</a>
+        <a href="#/teorija" data-route="teorija"><span>≡</span> Teorija</a>
+        <a href="#/kartice" data-route="kartice"><span>◇</span> Flashcards</a>
+        <a href="#/kviz" data-route="kviz"><span>✓</span> Kviz</a>
+        <a href="#/izpit" data-route="izpit"><span>✎</span> Izpit</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="progress-orbit" id="sidebar-progress" aria-label="Napredek pri ustnih odgovorih in teoriji">
+          <svg viewBox="0 0 44 44" aria-hidden="true">
+            <circle class="orbit-track" cx="22" cy="22" r="18"></circle>
+            <circle class="orbit-value" cx="22" cy="22" r="18"></circle>
+          </svg>
+          <span>0%</span>
+        </div>
+        <div>
+          <strong>Tvoj napredek</strong>
+          <small id="progress-copy">0/13 ustnih · 0/12 teorije</small>
+        </div>
+      </div>
+    </aside>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="mobile-menu" type="button" aria-label="Odpri navigacijo" aria-expanded="false">☰</button>
+        <div class="breadcrumb" id="breadcrumb">Numerične metode 2 <span>/</span> Pregled</div>
+        <div class="topbar-actions">
+          <button class="quiet-button" id="quick-random" type="button" title="Naključna kartica">Naključni izziv</button>
+          <span class="status-dot"><i></i> lokalno shranjeno</span>
+        </div>
+      </header>
+
+      <main id="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div class="sidebar-scrim" id="sidebar-scrim" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>Za interaktivne kartice, kviz in izpit mora biti JavaScript omogočen.</noscript>
+  <script src="vendor/katex/katex.min.js" defer></script>
+  <script src="vendor/katex/contrib/auto-render.min.js" defer></script>
+  <script src="ui.js" defer></script>
+  <script src="topics-approx.js" defer></script>
+  <script src="topics-calculus.js" defer></script>
+  <script src="topics-ode.js" defer></script>
+  <script src="oral-data-approx-geometry.js" defer></script>
+  <script src="oral-data-calculus-ode.js" defer></script>
+  <script src="oral-data.js" defer></script>
+  <script src="practice-data.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="review-visuals.js" defer></script>
+  <script src="review-3h.js" defer></script>
+  <script src="easy-oral.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

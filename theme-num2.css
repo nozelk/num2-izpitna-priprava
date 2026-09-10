@@ -1,0 +1,1493 @@
+/*
+ * NUM2 / midnight spectral theme
+ * Load this file after styles.css. It deliberately changes colour and surface
+ * treatment only; the existing responsive layout remains authoritative.
+ */
+
+:root {
+  --bg: #070812;
+  --panel: #0d1020;
+  --panel-2: #13172c;
+  --panel-3: #1a1f38;
+  --ink: #f5f1ff;
+  --muted: #aaa9c2;
+  --line: #282c49;
+  --line-strong: #41486f;
+  --acid: #a78bfa;
+  --acid-soft: rgba(167, 139, 250, .14);
+  --coral: #ff7a90;
+  --sky: #67d8ff;
+  --violet: #a78bfa;
+  --amber: #ffbd7a;
+  --danger: #ff7a90;
+  --shadow: 0 22px 60px rgba(2, 3, 12, .48);
+  --shadow-soft: 0 12px 34px rgba(2, 3, 14, .3);
+  --spectral-border: rgba(167, 139, 250, .28);
+  --spectral-surface: linear-gradient(145deg, rgba(167, 139, 250, .075), rgba(103, 216, 255, .025) 44%, rgba(13, 16, 32, .98) 76%);
+}
+
+html {
+  background: var(--bg);
+  scrollbar-color: #6f62a7 #0a0c18;
+}
+
+body {
+  background:
+    radial-gradient(circle at 82% -8%, rgba(167, 139, 250, .17), transparent 34rem),
+    radial-gradient(circle at 18% 42%, rgba(103, 216, 255, .07), transparent 28rem),
+    radial-gradient(circle at 88% 86%, rgba(255, 122, 144, .055), transparent 30rem),
+    linear-gradient(rgba(167, 139, 250, .028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 216, 255, .022) 1px, transparent 1px),
+    var(--bg);
+  background-attachment: fixed;
+  background-size: auto, auto, auto, 38px 38px, 38px 38px, auto;
+  color: var(--ink);
+}
+
+::selection {
+  color: #090713;
+  background: #c4b5fd;
+}
+
+:where(a, button, input, select, [tabindex], [contenteditable="true"]):focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(103, 216, 255, .12);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #675a9a transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(8, 9, 21, .72);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7664b6, #43557d);
+  border: 2px solid #0a0c19;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--violet), #5c83ae);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  color: #090713;
+  background: var(--sky);
+  box-shadow: 0 10px 30px rgba(103, 216, 255, .24);
+}
+
+/* Shell, brand and navigation ----------------------------------------- */
+
+.sidebar {
+  background:
+    linear-gradient(180deg, rgba(16, 18, 39, .97), rgba(7, 8, 18, .98)),
+    var(--bg);
+  border-right-color: rgba(167, 139, 250, .19);
+  box-shadow: 16px 0 50px rgba(1, 2, 10, .2);
+}
+
+.brand-mark {
+  color: #f9f7ff;
+  background: linear-gradient(145deg, #b69dfb, #8066dd 70%);
+  border: 1px solid rgba(220, 211, 255, .35);
+  box-shadow: 0 12px 28px rgba(124, 92, 224, .3), inset 0 1px 0 rgba(255, 255, 255, .24);
+}
+
+.brand strong {
+  color: #faf8ff;
+  text-shadow: 0 0 22px rgba(167, 139, 250, .22);
+}
+
+.brand small,
+.breadcrumb,
+.status-dot,
+.sidebar-bottom small {
+  color: var(--muted);
+}
+
+.search-box {
+  color: #9495b2;
+  background: rgba(18, 21, 43, .86);
+  border-color: #303655;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .025);
+}
+
+.search-box:focus-within {
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px rgba(103, 216, 255, .11), 0 12px 28px rgba(2, 4, 16, .22);
+}
+
+.search-box kbd {
+  color: #c4bdd8;
+  background: #0a0c19;
+  border-color: #3d4264;
+}
+
+.search-results {
+  background: rgba(15, 18, 37, .985);
+  border-color: #444a70;
+  box-shadow: 0 24px 60px rgba(1, 2, 11, .58), 0 0 0 1px rgba(167, 139, 250, .06);
+}
+
+.search-results a:hover {
+  background: linear-gradient(90deg, rgba(167, 139, 250, .13), rgba(103, 216, 255, .045));
+}
+
+.main-nav a {
+  color: #b8b6cc;
+}
+
+.main-nav a span {
+  color: #8586a4;
+}
+
+.main-nav a:hover {
+  color: #faf8ff;
+  background: rgba(167, 139, 250, .075);
+  border-color: rgba(167, 139, 250, .12);
+}
+
+.main-nav a.active {
+  color: #0b0817;
+  background: linear-gradient(125deg, #beaafb, #9b7fec 60%, #8c7bea);
+  border-color: #c5b6fb;
+  box-shadow: 0 10px 24px rgba(128, 94, 222, .24), inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+.main-nav a.active span {
+  color: #17102c;
+}
+
+.sidebar-bottom {
+  border-top-color: #282d49;
+}
+
+.orbit-track {
+  stroke: #292d49;
+}
+
+.orbit-value {
+  stroke: var(--sky);
+  filter: drop-shadow(0 0 4px rgba(103, 216, 255, .38));
+}
+
+.topbar {
+  background: rgba(7, 8, 18, .82);
+  border-bottom-color: rgba(65, 72, 111, .48);
+  box-shadow: 0 10px 30px rgba(2, 3, 12, .12);
+}
+
+.breadcrumb span {
+  color: #666b91;
+}
+
+.quiet-button,
+.icon-button {
+  color: #d8d3e8;
+  background: #11152a;
+  border-color: #373d60;
+}
+
+.quiet-button:hover,
+.icon-button:hover {
+  color: var(--sky);
+  border-color: rgba(103, 216, 255, .6);
+  background: rgba(103, 216, 255, .055);
+}
+
+.status-dot i {
+  background: var(--coral);
+  box-shadow: 0 0 0 4px rgba(255, 122, 144, .11), 0 0 14px rgba(255, 122, 144, .24);
+}
+
+/* Home hero and global actions ---------------------------------------- */
+
+.eyebrow {
+  color: var(--sky);
+}
+
+.display-title em {
+  color: var(--violet);
+  text-shadow: 0 0 34px rgba(167, 139, 250, .16);
+}
+
+.lede,
+.page-intro,
+.section-heading p {
+  color: #b7b5ca;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(167, 139, 250, .18), transparent 28%),
+    radial-gradient(circle at 63% 116%, rgba(103, 216, 255, .08), transparent 38%),
+    linear-gradient(145deg, #11152b, #0b0d1b 68%);
+  border-color: rgba(167, 139, 250, .28);
+  box-shadow: 0 26px 70px rgba(1, 2, 12, .44), inset 0 1px 0 rgba(255, 255, 255, .035);
+}
+
+.hero::after {
+  content: "∑";
+  right: 1%;
+  bottom: -28%;
+  color: rgba(167, 139, 250, .052);
+  text-shadow: 0 0 80px rgba(103, 216, 255, .08);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 49.85%, rgba(103, 216, 255, .055) 50%, transparent 50.15%),
+    linear-gradient(transparent 49.85%, rgba(167, 139, 250, .05) 50%, transparent 50.15%);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(90deg, transparent 28%, #000 100%);
+}
+
+.primary-button {
+  color: #0b0817;
+  background: linear-gradient(125deg, #beaafb, #a78bfa 62%, #9276e5);
+  border-color: rgba(224, 217, 255, .28);
+  box-shadow: 0 9px 22px rgba(128, 94, 222, .19), inset 0 1px 0 rgba(255, 255, 255, .28);
+}
+
+.primary-button:hover {
+  background: linear-gradient(125deg, #cbbdfd, #b298fb 62%, #9d83ea);
+  box-shadow: 0 13px 28px rgba(128, 94, 222, .28), inset 0 1px 0 rgba(255, 255, 255, .32);
+}
+
+.secondary-button {
+  color: #eeebf8;
+  background: #14182e;
+  border-color: #3a4164;
+}
+
+.secondary-button:hover {
+  color: #fff;
+  border-color: var(--sky);
+  background: rgba(103, 216, 255, .055);
+}
+
+.danger-button {
+  color: #ffdbe2;
+  background: rgba(255, 122, 144, .09);
+  border-color: rgba(255, 122, 144, .34);
+}
+
+.danger-button:hover {
+  background: rgba(255, 122, 144, .15);
+  border-color: var(--coral);
+}
+
+.text-button:hover {
+  color: var(--sky);
+}
+
+.stat-card,
+.topic-card,
+.path-card,
+.setup-card,
+.result-card,
+.quiz-card,
+.exam-question,
+.topic-scorecard {
+  background: var(--spectral-surface);
+  border-color: var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .025);
+}
+
+.stat-card strong {
+  color: #faf8ff;
+}
+
+.topic-card {
+  isolation: isolate;
+}
+
+.topic-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--topic-accent, var(--violet)) 13%, transparent), transparent 42%);
+  transition: opacity .2s ease;
+}
+
+.topic-card:hover::before {
+  opacity: 1;
+}
+
+.topic-card:hover {
+  box-shadow: 0 18px 38px rgba(2, 3, 14, .26), inset 0 1px 0 rgba(255, 255, 255, .035);
+}
+
+.topic-card::after {
+  color: rgba(194, 184, 239, .055);
+}
+
+.topic-card.done {
+  box-shadow: inset 0 3px 0 var(--sky);
+}
+
+.path-card {
+  background: linear-gradient(145deg, #14182f, #0d1020 76%);
+}
+
+.path-step {
+  border-top-color: #2b304d;
+}
+
+.path-step b {
+  color: #0b0817;
+  background: var(--amber);
+  box-shadow: 0 6px 16px rgba(255, 189, 122, .14);
+}
+
+.sprint-card {
+  color: #100a1d;
+  background:
+    radial-gradient(circle at 100% 0, rgba(255, 255, 255, .24), transparent 34%),
+    linear-gradient(135deg, #cabafd, #a78bfa 58%, #ff9aaa 145%);
+  border-color: #cfbffd;
+  box-shadow: 0 22px 48px rgba(91, 62, 177, .26);
+}
+
+.sprint-card .eyebrow {
+  color: #33205c !important;
+}
+
+.sprint-list li {
+  border-top-color: rgba(28, 15, 55, .18);
+}
+
+.sprint-card .secondary-button {
+  color: #160e28;
+  background: rgba(255, 255, 255, .16);
+  border-color: rgba(24, 14, 44, .35);
+}
+
+.sprint-card .secondary-button:hover {
+  background: rgba(255, 255, 255, .28);
+  border-color: rgba(24, 14, 44, .58);
+}
+
+.field select,
+.field input {
+  color: var(--ink);
+  background: #101427;
+  border-color: #3a4062;
+}
+
+.field select:focus,
+.field input:focus {
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px rgba(103, 216, 255, .1);
+}
+
+/* Map old inline topic/review accent colours into the NUM2 spectrum. */
+[style*="#c8ff3d"] {
+  --accent: var(--violet) !important;
+  --topic-accent: var(--violet) !important;
+  --review-accent: var(--violet) !important;
+}
+
+[style*="#65e0c2"],
+[style*="#a8f0d2"] {
+  --accent: var(--sky) !important;
+  --topic-accent: var(--sky) !important;
+  --review-accent: var(--sky) !important;
+}
+
+/* A few legacy diagrams carry colour declarations inside generated style
+   attributes. These targeted rules are intentionally important: a normal late
+   stylesheet cannot beat an inline declaration. */
+[style*="color:#c8ff3d"] {
+  color: var(--violet) !important;
+}
+
+[style*="color:#65e0c2"],
+[style*="color:#a8f0d2"] {
+  color: var(--sky) !important;
+}
+
+[style*="background:#0a100d"],
+[style*="background:#0b100d"],
+[style*="background:#182019"] {
+  background: #0e1122 !important;
+}
+
+[style*="border:1px solid #354428"],
+[style*="border:1px solid #283a40"] {
+  border-color: #3c4266 !important;
+}
+
+.quiz-card > .eyebrow {
+  color: var(--sky) !important;
+}
+
+/* Theory --------------------------------------------------------------- */
+
+.topic-hero {
+  border-bottom-color: #2c3150;
+}
+
+.topic-index {
+  color: var(--accent, var(--sky));
+}
+
+.topic-hero p,
+.lesson-block p,
+.lesson-block li {
+  color: #c3c0d2;
+}
+
+.pill {
+  color: #b6b3ca;
+  background: rgba(18, 22, 43, .78);
+  border-color: #303653;
+}
+
+.source-links a:hover,
+.local-toc a:hover,
+.local-toc button:hover {
+  color: var(--sky);
+}
+
+.local-toc {
+  border-left-color: #303655;
+}
+
+.lesson-block {
+  background: linear-gradient(145deg, rgba(18, 22, 43, .97), rgba(12, 15, 30, .99));
+  border-color: #2c3150;
+  box-shadow: 0 14px 34px rgba(2, 3, 14, .17), inset 0 1px 0 rgba(255, 255, 255, .02);
+}
+
+.lesson-block[data-type="plain"] {
+  border-left-color: var(--violet);
+}
+
+.lesson-block[data-type="formula"] {
+  border-left-color: var(--sky);
+}
+
+.lesson-block[data-type="algorithm"] {
+  border-left-color: var(--amber);
+}
+
+.lesson-block[data-type="example"] {
+  border-left-color: var(--coral);
+}
+
+.lesson-block[data-type="notation"] {
+  background: linear-gradient(145deg, rgba(103, 216, 255, .055), #0d1020 54%);
+  border-left-color: var(--sky);
+}
+
+.lesson-block[data-type="theorem"] {
+  background: linear-gradient(145deg, rgba(167, 139, 250, .075), #0e1021 58%);
+  border-left-color: var(--violet);
+}
+
+.lesson-block[data-type="proof"] {
+  background: linear-gradient(145deg, rgba(167, 139, 250, .055), #100f22 58%);
+  border-left-color: #c4b5fd;
+}
+
+.lesson-block[data-type="deep"] {
+  background: linear-gradient(145deg, rgba(103, 216, 255, .055), #0c1020 58%);
+  border-left-color: var(--sky);
+}
+
+.lesson-block[data-type="warning"] {
+  background: linear-gradient(145deg, rgba(255, 122, 144, .075), #130e1d 60%);
+  border-color: rgba(255, 122, 144, .34);
+}
+
+.lesson-block[data-type="recap"] {
+  color: #f7f3ff;
+  background:
+    radial-gradient(circle at 96% 0, rgba(103, 216, 255, .13), transparent 34%),
+    linear-gradient(135deg, #292052, #171733 64%, #111426);
+  border-color: rgba(167, 139, 250, .52);
+  box-shadow: 0 20px 48px rgba(5, 3, 20, .32), inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+.lesson-block[data-type="recap"] :where(p, li) {
+  color: #d8d3e7;
+}
+
+.lesson-block[data-type="recap"] strong,
+.lesson-block[data-type="recap"] h2,
+.lesson-block[data-type="recap"] h3 {
+  color: #fff;
+}
+
+.lesson-block[data-type="recap"] .block-label {
+  color: #c9baff;
+}
+
+.lesson-block[data-type="notation"] .block-label,
+.lesson-block[data-type="deep"] .block-label {
+  color: var(--sky);
+}
+
+.lesson-block[data-type="proof"] .block-label,
+.lesson-block[data-type="theorem"] .block-label {
+  color: #c4b5fd;
+}
+
+.equation,
+.math-panel {
+  color: #f0edff;
+  background:
+    radial-gradient(circle at 100% 0, rgba(103, 216, 255, .07), transparent 32%),
+    linear-gradient(145deg, #0b1020, #090c19 74%);
+  border-color: #31415e;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035), 0 12px 28px rgba(2, 3, 13, .14);
+}
+
+.math-panel::before {
+  color: #89cfe8;
+}
+
+.math-panel[data-tone="green"] {
+  background: linear-gradient(145deg, rgba(103, 216, 255, .065), #0b1020 56%);
+  border-color: rgba(103, 216, 255, .35);
+}
+
+.math-panel[data-tone="violet"] {
+  background: linear-gradient(145deg, rgba(167, 139, 250, .075), #0e0e20 60%);
+  border-color: rgba(167, 139, 250, .4);
+}
+
+.math-panel[data-tone="amber"] {
+  background: linear-gradient(145deg, rgba(255, 189, 122, .065), #12101d 60%);
+  border-color: rgba(255, 189, 122, .36);
+}
+
+.notation-item,
+.definition {
+  background: #0d1122;
+  border-color: #303653;
+}
+
+.notation-symbol {
+  color: #c6ebfa;
+}
+
+.notation-meaning {
+  color: #b7b5c8;
+}
+
+.notation-meaning strong {
+  color: #f2effb;
+}
+
+.theorem-card {
+  background: linear-gradient(145deg, rgba(167, 139, 250, .105), rgba(15, 16, 35, .96));
+  border-color: rgba(167, 139, 250, .39);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .03);
+}
+
+.theorem-card::before {
+  color: #0b0817;
+  background: #b9a4fb;
+}
+
+.theorem-card p {
+  color: #e4dfef;
+}
+
+.proof-step {
+  background: rgba(167, 139, 250, .055);
+  border-color: rgba(167, 139, 250, .2);
+}
+
+.proof-step::before,
+.proof-reason::before {
+  color: #110b23;
+  background: #c4b5fd;
+}
+
+.proof-step strong {
+  color: #f5f1ff;
+}
+
+.proof-step p,
+.proof-reason > p {
+  color: #c6bfd2;
+}
+
+.proof-reason {
+  color: #d3ccdf;
+  background: rgba(103, 216, 255, .045);
+  border-color: rgba(103, 216, 255, .17);
+}
+
+.proof-reason > strong,
+.qed,
+.proof-square {
+  color: #c4b5fd;
+}
+
+.proof-step > div::-webkit-scrollbar-thumb,
+.math-panel::-webkit-scrollbar-thumb,
+.notation-symbol::-webkit-scrollbar-thumb {
+  background: #655890;
+}
+
+.logic-row {
+  border-color: #303551;
+}
+
+.logic-row .arrow {
+  color: var(--sky);
+}
+
+.source-note {
+  background: rgba(167, 139, 250, .035);
+  border-left-color: #555c84;
+}
+
+.source-note strong {
+  color: #ded9e9;
+}
+
+.source-note a {
+  color: #b9e9fb;
+}
+
+.recap-prefix {
+  color: #e3dbff;
+  background: rgba(167, 139, 250, .14);
+  border: 1px solid rgba(167, 139, 250, .24);
+}
+
+.compare-table :where(th, td) {
+  border-color: #303653;
+}
+
+.compare-table th {
+  background: #12162b;
+}
+
+/* Flashcards, quiz and exam ------------------------------------------- */
+
+.flash-progress {
+  background: #252a47;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .32);
+}
+
+.flash-progress i {
+  background: linear-gradient(90deg, var(--violet), var(--sky));
+  box-shadow: 0 0 13px rgba(103, 216, 255, .25);
+}
+
+.flash-face {
+  border-color: #3c4266;
+  box-shadow: 0 26px 65px rgba(1, 2, 12, .5);
+}
+
+.flash-front {
+  background:
+    radial-gradient(circle at 90% 8%, rgba(167, 139, 250, .15), transparent 32%),
+    linear-gradient(145deg, #15192f, #0b0e1d 74%);
+}
+
+.flash-front small {
+  color: var(--sky);
+}
+
+.flash-back {
+  color: #100a1d;
+  background:
+    radial-gradient(circle at 100% 0, rgba(255, 255, 255, .26), transparent 31%),
+    linear-gradient(145deg, #d1c5fd, #b69dfb 60%, #a98ff4);
+  border-color: #d8ceff;
+}
+
+.flash-back small,
+.flash-back .flash-hint {
+  color: rgba(27, 16, 49, .68);
+}
+
+.setup-card,
+.result-card,
+.quiz-card {
+  box-shadow: var(--shadow-soft);
+}
+
+.option-button {
+  color: #cbc8d8;
+  background: #12162b;
+  border-color: #2f3553;
+}
+
+.option-button:hover:not(:disabled) {
+  color: #fff;
+  background: rgba(167, 139, 250, .055);
+  border-color: var(--violet);
+}
+
+.option-button b {
+  border-color: #4a5074;
+  background: rgba(255, 255, 255, .018);
+}
+
+.option-button.correct {
+  color: #aeeaff;
+  background: rgba(103, 216, 255, .1);
+  border-color: var(--sky);
+}
+
+.option-button.correct b {
+  color: #08121a;
+  background: var(--sky);
+  border-color: var(--sky);
+}
+
+.option-button.wrong {
+  color: #ffc1cc;
+  background: rgba(255, 122, 144, .09);
+  border-color: var(--coral);
+}
+
+.quiz-explanation {
+  color: #c9c6d8;
+  background: #0d1122;
+  border-left-color: var(--sky);
+}
+
+.score-ring {
+  color: #0c0817;
+  background: linear-gradient(145deg, #c4b5fd, #a78bfa 62%, #ff95a8 145%);
+  box-shadow: 0 15px 35px rgba(116, 81, 206, .28);
+}
+
+.exam-head {
+  border-bottom-color: #303653;
+}
+
+.exam-question {
+  box-shadow: 0 14px 34px rgba(2, 3, 14, .17);
+}
+
+.exam-question-head {
+  background: linear-gradient(90deg, rgba(167, 139, 250, .05), transparent 65%);
+  border-bottom-color: #2c3150;
+}
+
+.editor-toolbar {
+  background: #0b0e1c;
+  border-bottom-color: #292f4c;
+}
+
+.editor-toolbar button:hover {
+  color: var(--sky);
+  background: rgba(103, 216, 255, .06);
+  border-color: rgba(103, 216, 255, .32);
+}
+
+.answer-editor {
+  color: #dedbe7;
+  caret-color: var(--sky);
+  background: rgba(8, 10, 21, .34);
+}
+
+.answer-editor:empty::before {
+  color: #696b86;
+}
+
+.answer-editor:focus {
+  background: rgba(15, 19, 39, .55);
+  box-shadow: inset 3px 0 0 var(--violet);
+}
+
+.hint-box {
+  border-color: #2d3351;
+}
+
+.hint-box summary:hover {
+  color: var(--sky);
+}
+
+.hint-box p {
+  color: #bbb8ca;
+}
+
+/* Three-hour review ---------------------------------------------------- */
+
+.review-hero {
+  background:
+    radial-gradient(circle at 84% 16%, rgba(167, 139, 250, .2), transparent 29%),
+    radial-gradient(circle at 52% 120%, rgba(103, 216, 255, .08), transparent 38%),
+    linear-gradient(135deg, #151831, #0b0e1d 64%, #111127);
+  border-color: rgba(167, 139, 250, .38);
+  box-shadow: 0 28px 74px rgba(1, 2, 12, .46), inset 0 1px 0 rgba(255, 255, 255, .04);
+}
+
+.review-hero::after {
+  color: rgba(167, 139, 250, .055);
+}
+
+.review-hero-copy > p {
+  color: #c1bed0;
+}
+
+.review-hero-score {
+  color: #100a1d;
+  background: linear-gradient(145deg, #d0c4fd, #aa91f7 72%);
+  box-shadow: 0 18px 38px rgba(91, 62, 177, .26);
+}
+
+.review-schedule {
+  background: #2b304d;
+  border-color: #2b304d;
+}
+
+.review-schedule article {
+  background: linear-gradient(180deg, #12162b, #0d1020);
+}
+
+.review-schedule time {
+  color: var(--sky);
+}
+
+.review-study-mode,
+.review-language,
+.review-question,
+.review-reserve,
+.review-map,
+.review-finish {
+  background: linear-gradient(145deg, rgba(18, 22, 43, .98), rgba(10, 12, 25, .99));
+  border-color: #303653;
+  box-shadow: 0 15px 40px rgba(1, 2, 12, .19), inset 0 1px 0 rgba(255, 255, 255, .02);
+}
+
+.review-study-mode {
+  background:
+    radial-gradient(circle at 92% 4%, rgba(103, 216, 255, .1), transparent 30%),
+    linear-gradient(135deg, rgba(167, 139, 250, .13), #11152b 43%, #0c0f20);
+  border-color: rgba(167, 139, 250, .36);
+}
+
+.review-study-mode::after {
+  color: rgba(167, 139, 250, .045);
+}
+
+.review-study-mode header > p,
+.review-section-head p,
+.review-finish > p {
+  color: #b6b3c7;
+}
+
+.review-study-steps article {
+  background: rgba(8, 10, 23, .68);
+  border-color: rgba(167, 139, 250, .18);
+}
+
+.review-study-steps b {
+  color: #0b0817;
+  background: var(--violet);
+}
+
+.review-study-steps p {
+  color: #aaa8bb;
+}
+
+.review-notation-item {
+  background: #0c1020;
+  border-color: #2e3554;
+}
+
+.review-notation-item dt {
+  color: #d8f3fd;
+}
+
+.review-notation-item dd {
+  color: #b2afc1;
+}
+
+.review-writing-grid > article,
+.review-reserve-grid article {
+  background: rgba(10, 13, 28, .82);
+  border-color: #303653;
+}
+
+.review-writing-grid > article > span,
+.review-reserve-grid article > span {
+  color: var(--amber);
+}
+
+.review-writing-grid p,
+.review-reserve-grid p {
+  color: #b6b3c5;
+}
+
+.review-reserve {
+  background: linear-gradient(145deg, rgba(255, 189, 122, .07), #111327 55%);
+  border-color: rgba(255, 189, 122, .26);
+}
+
+.review-reserve-grid a {
+  color: #ddd8e9;
+}
+
+.review-reserve-grid a:hover {
+  color: var(--amber);
+}
+
+.review-answer-template {
+  background: rgba(167, 139, 250, .07);
+  border-color: rgba(167, 139, 250, .27);
+}
+
+.review-answer-template > strong {
+  color: #c4b5fd;
+}
+
+.review-answer-template li {
+  color: #cdc9d8;
+}
+
+.review-question {
+  background:
+    radial-gradient(circle at 94% 0, rgba(255, 122, 144, .07), transparent 30%),
+    linear-gradient(145deg, #17142b, #0e0e1f 68%);
+  border-color: rgba(167, 139, 250, .4);
+}
+
+.review-question .eyebrow,
+.review-question-spoken > span,
+.review-question-math-label {
+  color: #c4b5fd;
+}
+
+.review-question-spoken {
+  background: rgba(7, 8, 20, .58);
+  border-color: rgba(167, 139, 250, .27);
+  border-left-color: var(--violet);
+}
+
+.review-question-spoken p,
+.review-question-plan li {
+  color: #c8c2d2;
+}
+
+.review-question-plan {
+  background: rgba(167, 139, 250, .055);
+  border-color: rgba(167, 139, 250, .19);
+}
+
+.review-jump-grid button,
+.review-rail button {
+  color: #c4c0d0;
+  background: #0d1020;
+  border-color: #2e3452;
+}
+
+.review-jump-grid button:hover,
+.review-rail button:hover {
+  color: #fff;
+  background: rgba(167, 139, 250, .055);
+}
+
+.review-jump-grid b,
+.review-method-number,
+.review-algorithm > li::before {
+  color: #0b0817;
+  box-shadow: 0 7px 18px color-mix(in srgb, var(--review-accent) 18%, transparent);
+}
+
+.review-rail {
+  border-left-color: #303653;
+}
+
+.review-rail button {
+  border-bottom-color: rgba(65, 72, 111, .52);
+}
+
+.review-method {
+  background: #0e1122;
+  border-color: #2d3351;
+  border-top-color: var(--review-accent);
+  box-shadow: 0 18px 46px rgba(1, 2, 12, .22);
+}
+
+.review-method-head {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--review-accent) 10%, #111427), #0e1122 58%);
+  border-bottom-color: #2c3150;
+}
+
+.review-method-head p {
+  color: #bbb7c8;
+}
+
+.review-time {
+  background: rgba(4, 5, 14, .3);
+}
+
+.review-trigger-row {
+  background: #0a0d1b;
+  border-bottom-color: #292e4a;
+}
+
+.review-trigger-row span {
+  color: #b7b4c4;
+  background: #12162a;
+  border-color: #303653;
+}
+
+.review-subsection {
+  border-bottom-color: #292f4b;
+}
+
+.review-spoken {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--review-accent) 8%, #111427), #0e1122 58%);
+}
+
+.review-professor-question {
+  background: rgba(5, 7, 17, .3);
+  border-color: color-mix(in srgb, var(--review-accent) 25%, #303653);
+}
+
+.review-professor-question button {
+  background: rgba(4, 5, 14, .28);
+  border-color: color-mix(in srgb, var(--review-accent) 38%, #303653);
+}
+
+.review-professor-question button:hover {
+  color: #0b0817;
+}
+
+.review-spoken-answer {
+  background: #090c1a;
+  border-color: color-mix(in srgb, var(--review-accent) 19%, #2d3351);
+}
+
+.review-spoken-answer p {
+  color: #cbc7d5;
+}
+
+.review-anatomy article {
+  background: rgba(7, 9, 21, .68);
+  border-color: #2c324f;
+}
+
+.review-anatomy p,
+.review-recall p {
+  color: #aaa7b8;
+}
+
+.review-recall {
+  background: color-mix(in srgb, var(--review-accent) 7%, #0a0d1b);
+}
+
+.review-visual {
+  background: linear-gradient(145deg, rgba(103, 216, 255, .045), #0e1122 52%);
+}
+
+.review-visual-head p,
+.review-visual-formulas > article > p,
+.review-visual-callouts p {
+  color: #b0aec0;
+}
+
+.review-visual-stage {
+  background:
+    radial-gradient(circle at 75% 5%, rgba(167, 139, 250, .065), transparent 36%),
+    #080b18;
+  border-color: #303754;
+}
+
+.review-visual-formulas > article,
+.review-visual-callouts article {
+  background: #0a0e1d;
+  border-color: #2d3451;
+}
+
+.review-formula-grid > article,
+.review-algorithm > li,
+.review-example {
+  background: #0b0e1d;
+  border-color: #2d3351;
+}
+
+.review-formula-grid > article > p,
+.review-algorithm p,
+.review-algorithm aside,
+.review-watch li,
+.review-example li {
+  color: #b1aebe;
+}
+
+.review-watch {
+  background: color-mix(in srgb, var(--review-accent) 6%, #090c1a);
+  border-color: color-mix(in srgb, var(--review-accent) 24%, #2d3351);
+}
+
+.review-example[data-level="easy"] {
+  border-top-color: var(--sky);
+}
+
+.review-example[data-level="easy"] > span {
+  color: var(--sky);
+}
+
+.review-example[data-level="hard"] {
+  border-top-color: var(--coral);
+}
+
+.review-example[data-level="hard"] > span {
+  color: var(--coral);
+}
+
+.review-example-prompt {
+  color: #eeeaf6;
+}
+
+.review-example-answer {
+  color: #d0ccda;
+  background: rgba(167, 139, 250, .035);
+}
+
+.review-oral > ol li {
+  color: #cbc7d5;
+}
+
+.review-pitfall {
+  background: rgba(255, 122, 144, .07);
+  border-color: rgba(255, 122, 144, .26);
+}
+
+.review-pitfall strong {
+  color: #ff9daf;
+}
+
+.review-pitfall p {
+  color: #d1b5bd;
+}
+
+.review-deep-link {
+  color: #d6d2df;
+  border-color: #3c4264;
+}
+
+.review-finish {
+  color: #100a1d;
+  background:
+    radial-gradient(circle at 90% 0, rgba(255, 255, 255, .2), transparent 30%),
+    linear-gradient(135deg, #c8b9fc, #a78bfa 62%, #ff9aac 145%);
+  border-color: #cdbdfd;
+}
+
+.review-finish .eyebrow,
+.review-finish > p {
+  color: rgba(32, 18, 61, .72);
+}
+
+.review-finish .primary-button {
+  color: #f7f4ff;
+  background: #151126;
+  border-color: #151126;
+}
+
+.review-finish .secondary-button {
+  color: #160e28;
+  background: rgba(255, 255, 255, .14);
+  border-color: rgba(24, 14, 44, .35);
+}
+
+.toast {
+  color: #0c0817;
+  background: linear-gradient(125deg, #c4b5fd, #a78bfa 68%, #9d85ed);
+  border: 1px solid rgba(234, 229, 255, .38);
+  box-shadow: 0 18px 48px rgba(53, 35, 112, .36);
+}
+
+/* Current NUM2 diagrams and any old visual fragments ------------------ */
+
+.num2-visual figcaption,
+.num2-visual svg text {
+  color: #b6b3c4;
+  fill: #bbb8ca;
+}
+
+.num2-visual .grid {
+  stroke: rgba(167, 139, 250, .12);
+}
+
+.num2-visual .axis {
+  stroke: #626987;
+}
+
+.num2-visual .axis-label {
+  fill: #999bb8;
+}
+
+.num2-approx .target,
+.num2-approx .target-dot {
+  stroke: var(--violet);
+  fill: var(--violet);
+}
+
+.num2-approx .approx,
+.num2-approx .approx-dot {
+  stroke: var(--sky);
+  fill: var(--sky);
+}
+
+.num2-bezier .control-points circle,
+.num2-join .join-points circle {
+  fill: var(--violet);
+  stroke: #090713;
+}
+
+.num2-bezier .safe-arrow {
+  stroke: var(--sky);
+}
+
+.num2-bezier .safe-label,
+.num2-rk .panel-title {
+  fill: var(--sky);
+}
+
+.num2-rk .rk-arrow {
+  stroke: var(--violet);
+}
+
+.num2-rk .rk-footer rect {
+  fill: rgba(167, 139, 250, .09);
+  stroke: rgba(167, 139, 250, .36);
+}
+
+.num2-rk .rk-footer text {
+  fill: #d8ceff;
+}
+
+.num2-splines .s2 {
+  stroke: var(--violet);
+}
+
+.visual-cell-focus,
+.visual-pivot-cell,
+.visual-vector-focus,
+.visual-step-badge,
+.visual-cell-chosen,
+.visual-optimal-vertex,
+.visual-legend-region,
+.visual-legend-optimum {
+  color: #0b0817 !important;
+  background: var(--violet) !important;
+  fill: var(--violet);
+}
+
+.visual-cell-focus {
+  box-shadow: 0 0 0 2px rgba(167, 139, 250, .24);
+}
+
+.visual-basis-slot-new {
+  border-color: rgba(167, 139, 250, .48);
+}
+
+.visual-basis-slot-new strong,
+.visual-pivot-word,
+.visual-pivot-checklist li span,
+.visual-ratio-winner {
+  color: var(--violet);
+}
+
+.visual-feasible-polygon {
+  fill: rgba(167, 139, 250, .13);
+  stroke: var(--violet);
+}
+
+.visual-gap-track,
+.visual-duality-gap .visual-gap-track {
+  background: linear-gradient(90deg, var(--sky), var(--violet));
+}
+
+.visual-flow .visual-node-source .visual-node-circle,
+.visual-flow .visual-cut-side-a {
+  fill: rgba(103, 216, 255, .09);
+  stroke: var(--sky);
+}
+
+.visual-flow .visual-residual-path,
+.visual-matching .visual-search-path,
+.visual-matching .visual-set-s {
+  stroke: var(--sky);
+}
+
+.visual-matching .visual-set-s {
+  fill: var(--sky);
+}
+
+/* SVG presentation attributes otherwise outrank neither normal CSS nor this file. */
+svg [stroke^="#c8ff3d"] {
+  stroke: var(--violet);
+}
+
+svg [fill^="#c8ff3d"] {
+  fill: var(--violet);
+}
+
+svg stop[stop-color^="#c8ff3d"] {
+  stop-color: var(--violet);
+}
+
+svg [stroke^="#65e0c2"],
+svg [stroke^="#79e7b5"],
+svg [stroke^="#a8f0d2"] {
+  stroke: var(--sky);
+}
+
+svg [fill^="#65e0c2"],
+svg [fill^="#79e7b5"],
+svg [fill^="#a8f0d2"] {
+  fill: var(--sky);
+}
+
+svg stop[stop-color^="#65e0c2"],
+svg stop[stop-color^="#79e7b5"],
+svg stop[stop-color^="#a8f0d2"] {
+  stop-color: var(--sky);
+}
+
+/* Desaturate the green-grey construction lines embedded in older SVGs. */
+svg [stroke="#526158"],
+svg [stroke="#52615b"],
+svg [stroke="#38443d"],
+svg [stroke="#4f5e57"],
+svg [stroke="#63756b"],
+svg [stroke="#83928b"],
+svg [stroke="#708078"],
+svg [stroke="#71847b"],
+svg [stroke="#59665f"],
+svg [stroke="#789087"],
+svg [stroke="#7a877f"],
+svg [stroke="#7c8981"],
+svg [stroke="#7d8b82"] {
+  stroke: #666b91;
+}
+
+svg [fill="#526158"],
+svg [fill="#52615b"],
+svg [fill="#66746c"],
+svg [fill="#59665f"],
+svg [fill="#789087"],
+svg [fill="#7a877f"],
+svg [fill="#7c8981"],
+svg [fill="#7d8b82"],
+svg [fill="#8fa099"],
+svg [fill="#9da8a1"],
+svg [fill="#9aaca2"],
+svg [fill="#9ca9a1"],
+svg [fill="#a6b4ad"],
+svg [fill="#a7b5ad"],
+svg [fill="#aeb8b1"] {
+  fill: #8586a4;
+}
+
+svg [fill="#0a100d"],
+svg [fill="#0b100d"],
+svg [fill="#182019"] {
+  fill: #0e1122;
+}
+
+svg [stroke="#0a100d"],
+svg [stroke="#0b100d"],
+svg [stroke="#182019"] {
+  stroke: #090c19;
+}
+
+/* Mobile colour treatment; dimensions still come from styles.css. */
+@media (max-width: 900px) {
+  body {
+    background-size: auto, auto, auto, 30px 30px, 30px 30px, auto;
+  }
+
+  .sidebar {
+    box-shadow: 20px 0 60px rgba(1, 2, 12, .62);
+  }
+
+  .sidebar-scrim {
+    background: rgba(3, 3, 12, .74);
+    backdrop-filter: blur(3px);
+  }
+
+  .topbar {
+    background: rgba(7, 8, 18, .91);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Keep the existing print/export experience legible after this late override. */
+@media print {
+  :root {
+    --bg: #fff;
+    --panel: #fff;
+    --panel-2: #fff;
+    --panel-3: #f4f4f7;
+    --ink: #111;
+    --muted: #555;
+    --line: #bbb;
+    --line-strong: #888;
+  }
+
+  body,
+  .lesson-block,
+  .exam-question,
+  .answer-editor,
+  .math-panel,
+  .notation-item,
+  .theorem-card,
+  .proof-step {
+    color: #111;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .lesson-block :where(p, li, strong),
+  .theorem-card p,
+  .proof-step :where(p, strong),
+  .notation-meaning,
+  .notation-meaning strong {
+    color: #111;
+  }
+}
